@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachi's Pookies - Memory Game</title>
+    <style>
+        #levelSelect, #gallery {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        #levelSelect.active, #gallery.active {
+            display: flex;
+        }
+
+        .level-grid, .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 800px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .level-item, .gallery-item {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #4a90e2;
+            color: white;
+            font-size: 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .level-item:hover, .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .level-item.locked {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .game-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin: 20px 0;
+            perspective: 1000px;
+        }
+
+        .tile {
+            aspect-ratio: 1;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .tile.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .tile-front,
+        .tile-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tile-back {
+            background: #4a90e2;
+            transform: rotateY(180deg);
+        }
+
+        .tile-back img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+
+        .victory-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .victory-screen.active {
+            display: flex;
+        }
+
+        .victory-image {
+            max-width: 80%;
+            max-height: 60vh;
+            margin: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background: #4a90e2;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #357abd;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Sachi's Pookies</h1>
+        <button onclick="showLevelSelect()">Select Level</button>
+        <button onclick="showGallery()">View Gallery</button>
+        <div class="grid" id="gameGrid"></div>
+    </div>
+
+    <div id="levelSelect">
+        <h2>Select Level</h2>
+        <div class="level-grid" id="levelGrid"></div>
+    </div>
+
+    <div id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <button onclick="closeGallery()">Close</button>
+    </div>
+
+    <div class="victory-screen" id="victoryScreen">
+        <img class="victory-image" id="victoryImage" src="" alt="Victory Image">
+        <div class="button-container">
+            <button onclick="viewGallery()">View Gallery</button>
+            <button onclick="nextLevel()">Next Level</button>
+        </div>
+    </div>
+
+    <script>
+        let currentLevel = 0;
+        let flippedTiles = [];
+        let unlockedLevels = 1;
+        let maxLevels = 5;
+        let matchedPairs = 0;
+        const totalPairs = 8; // 4x4 grid = 16 tiles = 8 pairs
+
+        function createGrid() {
+            const grid = document.getElementById('gameGrid');
+            grid.innerHTML = '';
+            matchedPairs = 0;
+
+            // Create pairs array
+            const pairs = [];
+            for (let i = 1; i <= totalPairs; i++) {
+                pairs.push(i, i); // Add each number twice for pairs
+            }
+
+            // Shuffle pairs
+            for (let i = pairs.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [pairs[i], pairs[j]] = [pairs[j], pairs[i]];
+            }
+
+            // Create tiles
+            pairs.forEach((value, index) => {
+                const tile = document.createElement('div');
+                tile.className = 'tile';
+                tile.dataset.value = value;
+
+                const front = document.createElement('div');
+                front.className = 'tile-front';
+
+                const back = document.createElement('div');
+                back.className = 'tile-back';
+                const img = document.createElement('img');
+                img.src = `Images/${value}.png`;
+                img.alt = `Tile ${value}`;
+                back.appendChild(img);
+
+                tile.appendChild(front);
+                tile.appendChild(back);
+
+                tile.addEventListener('click', () => flipTile(tile));
+                grid.appendChild(tile);
+            });
+        }
+
+        function flipTile(tile) {
+            if (flippedTiles.length === 2 || tile.classList.contains('flipped') || 
+                tile.classList.contains('matched')) return;
+
+            tile.classList.add('flipped');
+            flippedTiles.push(tile);
+
+            if (flippedTiles.length === 2) {
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            const [tile1, tile2] = flippedTiles;
+            const match = tile1.dataset.value === tile2.dataset.value;
+
+            if (match) {
+                tile1.classList.add('matched');
+                tile2.classList.add('matched');
+                matchedPairs++;
+
+                if (matchedPairs === totalPairs) {
+                    setTimeout(showVictoryScreen, 500);
+                }
+            } else {
+                setTimeout(() => {
+                    tile1.classList.remove('flipped');
+                    tile2.classList.remove('flipped');
+                }, 1000);
+            }
+
+            flippedTiles = [];
+        }
+
+        function showVictoryScreen() {
+            const victoryScreen = document.getElementById('victoryScreen');
+            const victoryImage = document.getElementById('victoryImage');
+            victoryImage.src = `Images/sachi${currentLevel}.png`;
+            victoryScreen.classList.add('active');
+        }
+
+        function showLevelSelect() {
+            const levelSelect = document.getElementById('levelSelect');
+            const levelGrid = document.getElementById('levelGrid');
+            levelGrid.innerHTML = '';
+
+            for (let i = 1; i <= maxLevels; i++) {
+                const levelItem = document.createElement('div');
+                levelItem.className = `level-item ${i > unlockedLevels ? 'locked' : ''}`;
+                levelItem.textContent = `Level ${i}`;
+                if (i <= unlockedLevels) {
+                    levelItem.onclick = () => startLevel(i);
+                }
+                levelGrid.appendChild(levelItem);
+            }
+
+            levelSelect.classList.add('active');
+        }
+
+        function startLevel(level) {
+            currentLevel = level;
+            document.getElementById('levelSelect').classList.remove('active');
+            document.querySelector('h1').textContent = `Sachi's Pookies - Level ${currentLevel}`;
+            createGrid();
+        }
+
+        function showGallery() {
+            const gallery = document.getElementById('gallery');
+            const galleryGrid = document.getElementById('galleryGrid');
+            galleryGrid.innerHTML = '';
+
+            for (let i = 1; i <= unlockedLevels; i++) {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                const img = document.createElement('img');
+                img.src = `Images/sachi${i}.png`;
+                img.alt = `Level ${i} Image`;
+                galleryItem.appendChild(img);
+                galleryGrid.appendChild(galleryItem);
+            }
+
+            gallery.classList.add('active');
+        }
+
+        function closeGallery() {
+            document.getElementById('gallery').classList.remove('active');
+        }
+
+        function nextLevel() {
+            if (currentLevel < maxLevels) {
+                currentLevel++;
+                if (currentLevel > unlockedLevels) {
+                    unlockedLevels = currentLevel;
+                }
+                document.querySelector('h1').textContent = `Sachi's Pookies - Level ${currentLevel}`;
+                document.getElementById('victoryScreen').classList.remove('active');
+                createGrid();
+            } else {
+                document.getElementById('victoryScreen').classList.remove('active');
+                showGallery();
+            }
+        }
+
+        // Initialize the game
+        showLevelSelect();
+    </script>
+</body>
+</html>
