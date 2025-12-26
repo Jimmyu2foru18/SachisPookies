@@ -45,7 +45,6 @@ flowchart TD
    - Git Flow branching model
    - Semantic versioning pattern
    - Automated CHANGELOG generation
-- Diagram: ![Asset Pipeline](Images/asset-flow.drawio.svg)
 
 ### 1.2 User's Install Guide
 - Clone repository from GitHub
@@ -95,27 +94,11 @@ flowchart TD
 - Settings customization
 - Progress reset options
 
-### 3.4 Visual Guides
-1. World Map Interface: ![World Map](Images/world-map-ui.jpg)
-2. Pattern Matching Sequence: ![Gameplay Flow](Images/gameplay-sequence.jpg)
-3. Control Scheme Diagram: ![Input Map](Images/input-diagram.svg)
-
 ## 4. What's Missing?
 ### 4.1 Planned Features
 - Cloud save functionality
 - Social media sharing
 - Achievement system
-
-### 4.2 Technical Debt
-- **CSS Architecture**:
-  - Specificity conflicts in theme overrides
-  - Planned migration to CSS-in-JS solution
-- **Code Quality**:
-  - ~15% legacy jQuery code pending removal
-  - ESLint coverage: 92% (TypeScript strict mode)
-- **Testing**:
-  - Cypress coverage: 68% (critical paths only)
-  - Unit test target: 80% by Q4 2024
 
 ### 4.3 Roadmap
 **Q3 2024**
@@ -128,13 +111,8 @@ flowchart TD
 - Matchmaking system
 - Cross-platform sync
 
-**Q1 2025**
-- Steam Early Access launch
-- Achievements integration
-- Cloud Save API implementation
-
 ## 5. Conclusion
-This project successfully demonstrates core matching mechanics while establishing foundation for future expansion. ## 5. Conclusion
+This project successfully demonstrates core matching mechanics while establishing foundation for future expansion. 
 
 **Key Achievements**
 - Delivered core gameplay loop with 98% reliability
