@@ -1,24 +1,24 @@
-# 🎮 Sachi's Pookies - Memory Match Game
+# Sachi's Pookies - Memory Match Game
 
 **Sachi's Pookies** is an enchanting memory-based matching game where players flip tiles to reveal hidden images and complete beautiful picture puzzles. With vibrant visuals, smooth animations, and progressive difficulty, this game provides hours of engaging entertainment for players of all ages.
 
-## 🌟 Features
+## Features
 
-### ✨ Enhanced Gameplay
+### Gameplay
 - **10 Exciting Levels** - Progressive difficulty with unique image sets
 - **Memory Challenge** - Classic tile-matching mechanics with modern twists
 - **Timer System** - Track your speed and improve your performance
 - **Move Counter** - Challenge yourself to complete levels efficiently
 - **Progressive Unlocking** - Unlock new levels as you progress
 
-### 🎨 Beautiful Design
+### Design
 - **Modern UI/UX** - Clean, intuitive interface with smooth animations
 - **Responsive Design** - Works perfectly on desktop, tablet, and mobile
 - **Gradient Backgrounds** - Eye-catching visual design
 - **Smooth Animations** - CSS3 transitions and transforms
 - **Emoji Integration** - Fun, engaging visual elements
 
-### 🎯 User Experience
+### User Experience
 - **Main Menu** - Central hub with all game options
 - **Level Selection** - Choose from unlocked levels
 - **Instructions Popup** - Comprehensive game tutorial
@@ -26,17 +26,17 @@
 - **Victory Screen** - Celebrate your achievements
 - **Replay System** - Replay any level to improve your score
 
-### 💾 Progress & Storage
+### Progress & Storage
 - **Local Storage** - Your progress is saved automatically
 - **Level Unlocking** - Complete levels to unlock new challenges
 - **Persistent State** - Game remembers your unlocked levels
 
-## 🚀 How to Play
+## How to Play
 
-### 🎯 Objective
+### Objective
 Match all pairs of images by flipping tiles to reveal the hidden pictures and complete each level.
 
-### 🎮 Game Mechanics
+### Game Mechanics
 1. **Start the Game** - Click "Play Game" from the main menu
 2. **Choose a Level** - Select from available unlocked levels
 3. **Flip Tiles** - Click on tiles to reveal hidden images
@@ -44,55 +44,52 @@ Match all pairs of images by flipping tiles to reveal the hidden pictures and co
 5. **Complete the Level** - Match all pairs to reveal the victory image
 6. **Progress Further** - Unlock new levels and challenges
 
-### 💡 Tips for Success
+### Tips for Success
 - **Memory Training** - Try to remember where you've seen images
 - **Strategic Approach** - Start with corners and edges
 - **Take Your Time** - There's no rush, think before you click
 - **Practice Regularly** - The more you play, the better you get
 
-## 🛠️ Technical Implementation
+## Technical Implementation
 
-### 🏗️ Architecture
-- **Pure HTML/CSS/JavaScript** - No external dependencies
-- **Modular Design** - Clean, maintainable code structure
-- **Responsive Layout** - Mobile-first design approach
-- **Performance Optimized** - Efficient DOM manipulation
+### Architecture
+- **HTML/CSS/JavaScript**
+- **Responsive Layout**
 
-### 🎨 Styling Features
-- **CSS3 Gradients** - Beautiful background effects
-- **Flexbox & Grid** - Modern layout techniques
+### Styling Features
+- **CSS3 Gradients** 
+- **Flexbox & Grid**
 - **Smooth Animations** - 60fps performance
-- **Custom Fonts** - Comic Sans for playful feel
-- **Box Shadows** - Depth and visual hierarchy
+- **Fonts**
+- **Box Shadows**
 
-### ⚡ JavaScript Features
-- **ES6+ Syntax** - Modern JavaScript features
-- **Event Handling** - Efficient user interaction
-- **Local Storage API** - Client-side data persistence
-- **Timer Management** - Accurate time tracking
-- **Error Handling** - Graceful fallbacks for missing images
+### JavaScript Features
+- **ES6+ Syntax**
+- **Event Handling**
+- **Local Storage API**
+- **Timer Management** 
 
-## 📱 Responsive Design
+## Responsive Design
 
-### Desktop (1200px+)
+### Desktop
 - Full 4x4 grid layout
 - Large, easy-to-click tiles
 - Side-by-side game stats
 - Full button layouts
 
-### Tablet (768px - 1199px)
+### Tablet
 - Optimized grid spacing
 - Adjusted font sizes
 - Stacked game stats
 - Touch-friendly buttons
 
-### Mobile (320px - 767px)
+### Mobile
 - Compact grid layout
 - Large touch targets
 - Vertical button arrangement
 - Simplified game stats
 
-## 🎯 Game Screens
+## Game Screens
 
 ### 1. Main Menu
 - **Play Game** - Start your adventure
@@ -130,27 +127,27 @@ Match all pairs of images by flipping tiles to reveal the hidden pictures and co
 ### File Structure
 ```
 SachisPookies/
-├── index.html              # Main game file
-├── package.json            # Project configuration
-├── vite.config.js          # Build configuration
-├── TechnicalDocumentation.md # UML diagrams & technical specs
-├── README.md               # This file
-├── Images/                 # Game assets
-│   ├── 1.png - 10.png     # Tile images
-│   ├── sachi1.png - sachi10.png # Victory images
+├── index.html            
+├── package.json          
+├── vite.config.js   
+├── TechnicalDocumentation.md
+├── README.md    
+├── Images/        
+│   ├── 1.png - 10.png   
+│   ├── sachi1.png - sachi10.png 
 │   └── Main Screen Background.png
-└── .github/workflows/      # CI/CD configuration
+└── .github/workflows/ 
     └── deploy.yml
 ```
 
 ### Key Functions
 
 #### Game Management
-- `showScreen(screenId)` - Screen navigation
-- `startGame(level)` - Initialize new game
-- `createGameGrid()` - Generate game board
-- `flipTile(tile)` - Handle tile interactions
-- `checkMatch()` - Validate tile pairs
+- `showScreen(screenId)` 
+- `startGame(level)` 
+- `createGameGrid()`
+- `flipTile(tile)` 
+- `checkMatch()` 
 
 #### Timer System
 - `startTimer()` - Begin timing
