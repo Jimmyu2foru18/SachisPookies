@@ -166,7 +166,7 @@ SachisPookies/
   - Start with Level 1 unlocked
   - 10 total levels available
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - Modern web browser (Chrome, Firefox, Safari, Edge)
@@ -181,7 +181,6 @@ SachisPookies/
 
 2. **Open in browser**
    ```bash
-   # Simply open index.html in your browser
    open index.html
    ```
 
@@ -206,7 +205,7 @@ SachisPookies/
    npm run deploy
    ```
 
-## 🎨 Customization
+## Customization
 
 ### Adding New Levels
 1. Add new images to the `Images/` folder
@@ -228,7 +227,7 @@ background: linear-gradient(45deg, #4a90e2, #357abd);
 - Modify timer logic for time-based challenges
 - Adjust level unlocking requirements
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -254,7 +253,7 @@ background: linear-gradient(45deg, #4a90e2, #357abd);
 - **Edge**: Full support
 - **Mobile browsers**: Full support with responsive design
 
-## 🤝 Contributing
+## Contributing
 
 ### Development Guidelines
 1. Follow existing code style and structure
@@ -269,26 +268,10 @@ background: linear-gradient(45deg, #4a90e2, #357abd);
 - Multiplayer functionality
 - Achievement system
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🙏 Acknowledgments
-
-- **Design Inspiration** - Modern mobile game aesthetics
-- **Game Mechanics** - Classic memory matching games
-- **Technical Stack** - Pure HTML/CSS/JavaScript approach
-- **Community** - Open source contributors and testers
-
-## 📞 Support
-
-For questions, issues, or suggestions:
-- **GitHub Issues** - [Create an issue](https://github.com/Jimmyu2foru18/SachisPookies/issues)
-- **Documentation** - Check `TechnicalDocumentation.md` for technical details
 - **Live Demo** - [Play the game](https://jimmyu2foru18.github.io/SachisPookies/)
 
 ---
 
-**Made with ❤️ by the Sachi's Pookies development team**
+**Made with ❤️ by Sachi's Pookies**
 
 *Last updated: December 2025*
