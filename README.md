@@ -1,81 +1,297 @@
-# Sachi's Pookies
+# 🎮 Sachi's Pookies - Memory Match Game
 
-**Sachi's Pookies** is a charming memory-based image reveal game where players match tile pairs to uncover hidden images. Designed with vibrant visuals and rewarding progression, this project serves as a test run for an interactive game design, to be deployed on **GitHub Pages** once the core gameplay mechanics are complete.
+**Sachi's Pookies** is an enchanting memory-based matching game where players flip tiles to reveal hidden images and complete beautiful picture puzzles. With vibrant visuals, smooth animations, and progressive difficulty, this game provides hours of engaging entertainment for players of all ages.
 
-## Game Objective
+## 🌟 Features
 
-Reveal a hidden image by correctly matching all image pairs on a grid. Each successful match reveals a portion of the photo underneath. Complete all pairs to fully reveal a beautiful version of the image and progress to the next level.
+### ✨ Enhanced Gameplay
+- **10 Exciting Levels** - Progressive difficulty with unique image sets
+- **Memory Challenge** - Classic tile-matching mechanics with modern twists
+- **Timer System** - Track your speed and improve your performance
+- **Move Counter** - Challenge yourself to complete levels efficiently
+- **Progressive Unlocking** - Unlock new levels as you progress
 
-## How It Works
+### 🎨 Beautiful Design
+- **Modern UI/UX** - Clean, intuitive interface with smooth animations
+- **Responsive Design** - Works perfectly on desktop, tablet, and mobile
+- **Gradient Backgrounds** - Eye-catching visual design
+- **Smooth Animations** - CSS3 transitions and transforms
+- **Emoji Integration** - Fun, engaging visual elements
 
-- A grid overlays a hidden photo.
-- Each tile in the grid contains one of several matching image icons.
-- Players flip two tiles at a time to find a matching pair.
-- Matching pairs unlock the corresponding section of the photo underneath.
-- Every image icon appears exactly **twice** per level.
-- When all pairs are matched, the full hidden image is revealed in **sharper, more vibrant detail**.
-- Click “Next” to continue to the next level and a brand new image.
+### 🎯 User Experience
+- **Main Menu** - Central hub with all game options
+- **Level Selection** - Choose from unlocked levels
+- **Instructions Popup** - Comprehensive game tutorial
+- **Pause Functionality** - Take breaks without losing progress
+- **Victory Screen** - Celebrate your achievements
+- **Replay System** - Replay any level to improve your score
 
-## Gameplay Loop
+### 💾 Progress & Storage
+- **Local Storage** - Your progress is saved automatically
+- **Level Unlocking** - Complete levels to unlock new challenges
+- **Persistent State** - Game remembers your unlocked levels
 
-1. **Start Menu**:
-   - Start Game
-   - View Gallery
-   - Exit
+## 🚀 How to Play
 
-2. **In-Game**:
-   - Flip tile pairs to match them.
-   - If matched: Reveal part of the image.
-   - If mismatched: Try again — but only up to 5 wrong attempts per level.
+### 🎯 Objective
+Match all pairs of images by flipping tiles to reveal the hidden pictures and complete each level.
 
-3. **Level Complete**:
-   - View the fully revealed image.
-   - Click “Next” to go to the next puzzle.
+### 🎮 Game Mechanics
+1. **Start the Game** - Click "Play Game" from the main menu
+2. **Choose a Level** - Select from available unlocked levels
+3. **Flip Tiles** - Click on tiles to reveal hidden images
+4. **Find Matches** - Click two tiles to find matching pairs
+5. **Complete the Level** - Match all pairs to reveal the victory image
+6. **Progress Further** - Unlock new levels and challenges
 
-4. **Game Over**:
-   - Failing more than 5 match attempts ends the level.
-   - Retry from the beginning or main menu.
+### 💡 Tips for Success
+- **Memory Training** - Try to remember where you've seen images
+- **Strategic Approach** - Start with corners and edges
+- **Take Your Time** - There's no rush, think before you click
+- **Practice Regularly** - The more you play, the better you get
 
-## Gallery Feature
+## 🛠️ Technical Implementation
 
-- Each completed level unlocks a high-resolution version of the hidden image.
-- Players can revisit all unlocked images from the Gallery on the main menu.
-- Unlock all 12 images by successfully completing all levels.
+### 🏗️ Architecture
+- **Pure HTML/CSS/JavaScript** - No external dependencies
+- **Modular Design** - Clean, maintainable code structure
+- **Responsive Layout** - Mobile-first design approach
+- **Performance Optimized** - Efficient DOM manipulation
 
-## Game Progression
+### 🎨 Styling Features
+- **CSS3 Gradients** - Beautiful background effects
+- **Flexbox & Grid** - Modern layout techniques
+- **Smooth Animations** - 60fps performance
+- **Custom Fonts** - Comic Sans for playful feel
+- **Box Shadows** - Depth and visual hierarchy
 
-- 12 Levels in total, each with a unique hidden photo.
-- Matching difficulty increases as levels progress.
-- Visual effects and transitions enhance each level reveal.
+### ⚡ JavaScript Features
+- **ES6+ Syntax** - Modern JavaScript features
+- **Event Handling** - Efficient user interaction
+- **Local Storage API** - Client-side data persistence
+- **Timer Management** - Accurate time tracking
+- **Error Handling** - Graceful fallbacks for missing images
 
-## Project Purpose
+## 📱 Responsive Design
 
-This game is part of a creative front-end project meant to explore:
+### Desktop (1200px+)
+- Full 4x4 grid layout
+- Large, easy-to-click tiles
+- Side-by-side game stats
+- Full button layouts
 
-- Interactive puzzle design
-- Animation and grid layout techniques
-- Memory-based mechanics
-- Dynamic UI transitions
+### Tablet (768px - 1199px)
+- Optimized grid spacing
+- Adjusted font sizes
+- Stacked game stats
+- Touch-friendly buttons
 
-## Deployment Status
-![GitHub Pages](https://github.com/Jimmyu2foru18/SachisPookies/workflows/Deploy/badge.svg)
+### Mobile (320px - 767px)
+- Compact grid layout
+- Large touch targets
+- Vertical button arrangement
+- Simplified game stats
 
-## Installation & Deployment
-```bash
-# Clone repository
-git clone https://github.com/Jimmyu2foru18/SachisPookies.git
-cd SachisPookies
+## 🎯 Game Screens
 
-# Install dependencies
-npm install
+### 1. Main Menu
+- **Play Game** - Start your adventure
+- **Instructions** - Learn how to play
+- **Gallery** - View completed levels (coming soon)
+- **Quit** - Exit the game
 
-# Build for production
-npm run build
+### 2. Level Selection
+- **Visual Level Grid** - 3x3 grid of available levels
+- **Progress Indicators** - Checkmarks for completed levels
+- **Lock System** - Locked levels show padlock icons
+- **Level Numbers** - Clear level identification
 
-# Deploy to GitHub Pages
-npm run deploy
+### 3. Game Screen
+- **Timer Display** - Real-time elapsed time
+- **Move Counter** - Track your efficiency
+- **Current Level** - Know which level you're playing
+- **Control Buttons** - Pause, Restart, Menu options
+- **4x4 Tile Grid** - Main gameplay area
+
+### 4. Victory Screen
+- **Congratulations Message** - Celebrate your success
+- **Victory Image** - Beautiful completion image
+- **Performance Stats** - Time and moves taken
+- **Navigation Options** - Next level, replay, menu, level select
+
+### 5. Pause Modal
+- **Pause Notification** - Game is paused
+- **Resume Option** - Continue playing
+- **Restart Level** - Start the level over
+- **Main Menu** - Return to main menu
+
+## 🔧 Technical Documentation
+
+### File Structure
+```
+SachisPookies/
+├── index.html              # Main game file
+├── package.json            # Project configuration
+├── vite.config.js          # Build configuration
+├── TechnicalDocumentation.md # UML diagrams & technical specs
+├── README.md               # This file
+├── Images/                 # Game assets
+│   ├── 1.png - 10.png     # Tile images
+│   ├── sachi1.png - sachi10.png # Victory images
+│   └── Main Screen Background.png
+└── .github/workflows/      # CI/CD configuration
+    └── deploy.yml
 ```
 
-Game will be automatically deployed to:
-https://jimmyu2foru18.github.io/SachisPookies/
-"""
+### Key Functions
+
+#### Game Management
+- `showScreen(screenId)` - Screen navigation
+- `startGame(level)` - Initialize new game
+- `createGameGrid()` - Generate game board
+- `flipTile(tile)` - Handle tile interactions
+- `checkMatch()` - Validate tile pairs
+
+#### Timer System
+- `startTimer()` - Begin timing
+- `stopTimer()` - Pause timing
+- `updateTimer()` - Update display
+
+#### Progress Management
+- `updateLevelGrid()` - Refresh level selection
+- `showVictory()` - Handle level completion
+- `nextLevel()` - Progress to next level
+
+### Data Storage
+- **Local Storage Keys**:
+  - `unlockedLevels` - Number of unlocked levels
+- **Default Values**:
+  - Start with Level 1 unlocked
+  - 10 total levels available
+
+## 🚀 Installation & Setup
+
+### Prerequisites
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Local web server (optional, for development)
+
+### Quick Start
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Jimmyu2foru18/SachisPookies.git
+   cd SachisPookies
+   ```
+
+2. **Open in browser**
+   ```bash
+   # Simply open index.html in your browser
+   open index.html
+   ```
+
+### Development Setup
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+4. **Deploy to GitHub Pages**
+   ```bash
+   npm run deploy
+   ```
+
+## 🎨 Customization
+
+### Adding New Levels
+1. Add new images to the `Images/` folder
+2. Update the `maxLevel` variable in the JavaScript
+3. Ensure proper image naming convention
+
+### Changing Colors
+Modify the CSS custom properties in the `<style>` section:
+```css
+/* Main gradient colors */
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+/* Button colors */
+background: linear-gradient(45deg, #4a90e2, #357abd);
+```
+
+### Adjusting Difficulty
+- Change `totalPairs` variable for different grid sizes
+- Modify timer logic for time-based challenges
+- Adjust level unlocking requirements
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+#### Images Not Loading
+- Check image file names and paths
+- Ensure images are in the correct `Images/` folder
+- Verify file extensions (.png)
+
+#### Game Not Saving Progress
+- Check browser local storage permissions
+- Ensure JavaScript is enabled
+- Try refreshing the page
+
+#### Mobile Display Issues
+- Check viewport meta tag
+- Test responsive breakpoints
+- Verify touch event handling
+
+### Browser Compatibility
+- **Chrome**: Full support
+- **Firefox**: Full support
+- **Safari**: Full support
+- **Edge**: Full support
+- **Mobile browsers**: Full support with responsive design
+
+## 🤝 Contributing
+
+### Development Guidelines
+1. Follow existing code style and structure
+2. Test on multiple devices and browsers
+3. Maintain responsive design principles
+4. Keep performance optimizations in mind
+
+### Feature Requests
+- New game modes
+- Additional animations
+- Sound effects integration
+- Multiplayer functionality
+- Achievement system
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- **Design Inspiration** - Modern mobile game aesthetics
+- **Game Mechanics** - Classic memory matching games
+- **Technical Stack** - Pure HTML/CSS/JavaScript approach
+- **Community** - Open source contributors and testers
+
+## 📞 Support
+
+For questions, issues, or suggestions:
+- **GitHub Issues** - [Create an issue](https://github.com/Jimmyu2foru18/SachisPookies/issues)
+- **Documentation** - Check `TechnicalDocumentation.md` for technical details
+- **Live Demo** - [Play the game](https://jimmyu2foru18.github.io/SachisPookies/)
+
+---
+
+**Made with ❤️ by the Sachi's Pookies development team**
+
+*Last updated: December 2025*
